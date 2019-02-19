@@ -65,6 +65,11 @@ $ docker stop -t 0 [container id]
 $ docker run -d -P [nome do container]
 ```
 
+### Definir porta
+```
+$ docker run -p 8080:80 [nome do container]
+```
+
 ### Ver porta do container
 ```
 $ docker port [container id]
@@ -93,4 +98,24 @@ $ docker ps -q
 ### Parar containers com $()
 ```
 $ docker stop -t 0 $(docker ps -q)
+```
+
+## Volumes Docker
+
+### Criar um volume
+```
+$ docker run -v "/var/www" ubuntu
+```
+```
+$ docker run -v [caminho do host "C:\\user\junior:/var/www"] [nome do container]
+```
+
+### Informações do container
+```
+$ docker inspect [container id]
+```
+
+### Iniciar um comando na maquina utilizando o volume (ambiente de desenvolvimento)
+```
+$ docker run -d -p 3000:80 -v ""caminho do host : caminho do container"] -w [caminho do container] [comando a ser executado]
 ```
